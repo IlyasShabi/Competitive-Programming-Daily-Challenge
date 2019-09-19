@@ -1,1 +1,1 @@
-# Competitive-Programming-Daily-Challenge
+# Competitive Programming
