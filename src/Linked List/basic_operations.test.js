@@ -1,22 +1,31 @@
-import { create, insert, read, removeByIndex , removeByValue } from './basic_operations';
+import * as operations from './basic_operations';
 
 describe('Basic operations on LinkedList', () => {
     it('Create', () => {
         const input = 1;
-        expect(create(input)).toBeCalled;
+        expect(operations.create(input)).toBeCalled;
     });
     it('Insert', () => {
         [2, 3, 4, 5, 6].every((num, ind) => {
-            expect(insert(num)).toBeCalled;
+            expect(operations.insert(num)).toBeCalled;
         });
     });
     it('Read', () => {
-        expect(read()).toBeCalled;
+        expect(operations.read()).toBeCalled;
     });
     it('Remove By Index ', () => {
-        expect(removeByIndex(2)).toBeCalled;
+        expect(operations.removeByIndex(2)).toBeCalled;
     });
     it('Remove By Value', () => {
-        expect(removeByValue(4)).toBeCalled;
+        expect(operations.removeByValue(4)).toBeCalled;
+    });
+});
+
+describe('Array to LinkedList' , () => {
+    it('1 - Test Case', () => {
+        const input = [1, 2, 3, 4, 5, 6, 7];
+        const linkedList = operations.arrayToLinkedList(input);
+        expect(linkedList).toBeCalled;
+        expect(operations.linkedListToArray(linkedList)).toBeCalled;
     });
 });

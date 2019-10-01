@@ -1,5 +1,5 @@
 import { LinkedList } from './singlyLinkedList';
-var list;
+let list;
 
 export function create(value) {
     list = new LinkedList(value);
@@ -19,4 +19,12 @@ export function removeByIndex(index) {
 
 export function removeByValue(value) {
     list.removeByValue(value);
+}
+export function arrayToLinkedList(array) {
+    const first = array.shift();
+    const list = new LinkedList(first);
+    list.arrayToLinkedList(array);
+}
+export function linkedListToArray() {
+    return list.linkedListToArray(list);
 }

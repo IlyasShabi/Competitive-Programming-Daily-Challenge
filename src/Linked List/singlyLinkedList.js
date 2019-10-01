@@ -1,6 +1,6 @@
 export class LinkedList {
 
-    constructor(value, next = null) {
+    constructor(value= null, next = null) {
         this.value = value;
         this.next = next;
     }
@@ -51,5 +51,21 @@ export class LinkedList {
         if(current.next){
             previous.next = current.next;
         }
+    }
+
+    arrayToLinkedList(array){
+        for(let i = 0; i< array.length ; i++){
+            this.insert(array[i]);
+        }
+        this.print();
+    }
+    linkedListToArray(linkedList){
+        const array = [];
+        while(linkedList.next){
+            array.push(linkedList.value);
+            linkedList = linkedList.next;
+        }
+        array.push(linkedList.value);
+        return array;
     }
 }
