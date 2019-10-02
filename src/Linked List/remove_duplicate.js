@@ -1,19 +1,22 @@
 import { LinkedList } from './singlyLinkedList';
 
-export function main(array){
+export function main(array) {
+    if(!array || !array.length ) return array;
+    // LinkedList Constructor
     let list = new LinkedList(array.shift());
-
     list.arrayToLinkedList(array);
-    let set = new Set();
-    let table = [];
-
-    while(list.next){
-        set.add(list.value);
-        table.push(list.value);
-        list = list.next;
+    // Seen Set
+    const seen = new Set([list.value]);
+    let node = list;
+    while (node.next) {
+        if (seen.has(node.next.value)) {
+            // skip next node
+            node.next = node.next.next;
+        }
+        else {
+            seen.add(node.next.value);
+            node = node.next;
+        }
     }
-    set.add(list.value);
-    table.push(list.value);
-    console.log(set);
-    console.log(table);
+    return list.linkedListToArray(list);
 }
