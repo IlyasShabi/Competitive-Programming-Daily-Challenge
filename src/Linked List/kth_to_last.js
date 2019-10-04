@@ -1,5 +1,3 @@
-import { LinkedList } from './singlyLinkedList';
-
 export function main(list, k) {
     const length = _getLength(list);
     if(k > length || k < 0) return null;
