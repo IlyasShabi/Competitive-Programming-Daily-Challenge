@@ -1,6 +1,6 @@
 export class LinkedList {
 
-    constructor(value= null, next = null) {
+    constructor(value = null, next = null) {
         this.value = value;
         this.next = next;
     }
@@ -20,20 +20,20 @@ export class LinkedList {
         }
     }
 
-    print(){
+    print() {
         let current = this;
-        while(current.next){
+        while (current.next) {
             // console.log(current);
             current = current.next;
         }
         // console.log(current);
     }
 
-    removeByIndex(index){
+    removeByIndex(index) {
         let position = 0;
         let current = this;
         let previous;
-        while(current.next && index > position){
+        while (current.next && index > position) {
             position++;
             previous = current;
             current = current.next;
@@ -41,31 +41,39 @@ export class LinkedList {
         previous.next = current.next;
     }
 
-    removeByValue(value){
+    removeByValue(value) {
         let current = this;
         let previous;
-        while(current.next && value !== current.value){
+        while (current.next && value !== current.value) {
             previous = current;
             current = current.next;
         }
-        if(current.next){
+        if (current.next) {
             previous.next = current.next;
         }
     }
 
-    arrayToLinkedList(array){
-        for(let i = 0; i< array.length ; i++){
+    arrayToLinkedList(array) {
+        for (let i = 0; i < array.length; i++) {
             this.insert(array[i]);
         }
         this.print();
     }
-    linkedListToArray(linkedList){
+    linkedListToArray(linkedList) {
         const array = [];
-        while(linkedList.next){
+        while (linkedList.next) {
             array.push(linkedList.value);
             linkedList = linkedList.next;
         }
         array.push(linkedList.value);
         return array;
     }
+}
+
+export function fromArray(array) {
+    if(!array || !array.length) return null;
+    
+    let list = new LinkedList(array.shift());
+    list.arrayToLinkedList(array);
+    return list;
 }

@@ -1,5 +1,5 @@
 import { addTwoNumbers } from './reverse_sum_lists';
-import { LinkedList } from './singlyLinkedList';
+import { LinkedList, fromArray } from './singlyLinkedList';
 
 describe('Reverse sum of two linked lists', () => {
 
@@ -8,12 +8,10 @@ describe('Reverse sum of two linked lists', () => {
     it('First test case', () => {
         
         const input1 = [1, 2, 1 ,6];
-        let list1 = new LinkedList(input1.shift());
-        list1.arrayToLinkedList(input1);
+        let list1 = fromArray(input1);
         
         const input2 =[4, 5, 9];
-        let list2 = new LinkedList(input2.shift());
-        list2.arrayToLinkedList(input2);
+        let list2 = fromArray(input2);
 
         const expected = [5,7,0,7];
 
@@ -24,12 +22,10 @@ describe('Reverse sum of two linked lists', () => {
     it('Second test case', () => {
         
         const input1 = [2, 4 ,3];
-        let list1 = new LinkedList(input1.shift());
-        list1.arrayToLinkedList(input1);
+        let list1 = fromArray(input1);
         
         const input2 =[5, 6, 4];
-        let list2 = new LinkedList(input2.shift());
-        list2.arrayToLinkedList(input2);
+        let list2 = fromArray(input2);
 
         const expected = [7,0,8];
 
