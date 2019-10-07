@@ -1,23 +1,18 @@
-class Stack {
-    constructor(array){
-        this._array = array;
-    }
+export function Stack(array){
+    this._array = array;
+}
 
-    add(value){
-        this._array.push(value);
-    }
-
-    remove(){
-        this._array.pop();
-    }
-
-    peek(){
-        const length = this._array.length;
-        return this.array[length -1];
-    }
-
-    isEmpty(){
-        if(!this._array) return true;
-        return this._array.length === 0;
-    }
+Stack.prototype.add = function (value){
+    this._array.push(value);
+}
+Stack.prototype.remove = function(){
+    this._array.pop();
+}
+Stack.prototype.peek = function (){
+    const length = this._array.length;
+    return this.array[length -1];
+}
+Stack.prototype.isEmpty = function(){
+    if(!this._array) return true;
+    return this._array.length === 0;
 }
