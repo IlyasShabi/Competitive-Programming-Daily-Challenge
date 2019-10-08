@@ -1,4 +1,4 @@
-export function Stack(array){
+export function Stack(array = []){
     this._array = array;
 }
 
@@ -10,9 +10,13 @@ Stack.prototype.remove = function(){
 }
 Stack.prototype.peek = function (){
     const length = this._array.length;
-    return this.array[length -1];
+    return this._array[length -1];
 }
 Stack.prototype.isEmpty = function(){
     if(!this._array) return true;
     return this._array.length === 0;
+}
+
+Stack.prototype.size = function(){
+    return this._array.length;
 }
