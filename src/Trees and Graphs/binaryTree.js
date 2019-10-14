@@ -2,24 +2,32 @@ export class BinaryTree {
     
     constructor(value){
         this.value = value;
-        this.left = null;
-        this.right = null;
+        this.left = this.right = undefined;
     }
-    
-    insert(value){
+
+    insert(value) {
         const node = new BinaryTree(value);
-        _insertRecursion(this, node);
+        return _insertRecursion(this, node);
     }
 }
 
 function _insertRecursion (tree, node) {
-    if(tree.right === null) {
-        tree.right = node;
-    }else if(tree.left === null){
-        tree.left = node;
-    }else if(tree.value > node.value){
-        _insertRecursion(tree.right, node);
+    
+    if(tree.value < node.value){
+        if(tree.left == null) {
+            tree.left = node;
+        }else if(tree.right == null){
+            tree.right = node;
+        }else {
+            _insertRecursion(tree.left, node);
+        }
     }else{
-        _insertRecursion(tree.left, node);
+        if(tree.right == null) {
+            tree.right = node;
+        }else if(tree.left == null){
+            tree.left = node;
+        }else{
+            _insertRecursion(tree.right, node);
+        }
     }
 }
