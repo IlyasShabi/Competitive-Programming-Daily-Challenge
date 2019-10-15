@@ -1,33 +1,39 @@
 export class BinaryTree {
-    
-    constructor(value){
-        this.value = value;
-        this.left = this.right = undefined;
+
+    constructor() {
+        this.data = this.left = this.right = undefined;
     }
 
     insert(value) {
-        const node = new BinaryTree(value);
-        return _insertRecursion(this, node);
+
+        if (typeof this.data === 'undefined') {
+            this.data = value;
+        } else {
+            _insertNode(this, new Node(value));
+        }
+    }
+}
+export class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = this.right = undefined;
     }
 }
 
-function _insertRecursion (tree, node) {
-    
-    if(tree.value < node.value){
-        if(tree.left == null) {
-            tree.left = node;
-        }else if(tree.right == null){
-            tree.right = node;
-        }else {
-            _insertRecursion(tree.left, node);
+
+function _insertNode(tree, newNode) {
+
+    if (newNode.data < tree.data) {
+        if (typeof tree.left === 'undefined') {
+            tree.left = newNode;
+        } else {
+            _insertNode(tree.left, newNode);
         }
-    }else{
-        if(tree.right == null) {
-            tree.right = node;
-        }else if(tree.left == null){
-            tree.left = node;
-        }else{
-            _insertRecursion(tree.right, node);
+    } else {
+        if (typeof tree.right === 'undefined') {
+            tree.right = newNode;
+        } else {
+            _insertNode(tree.right, newNode);
         }
     }
 }
