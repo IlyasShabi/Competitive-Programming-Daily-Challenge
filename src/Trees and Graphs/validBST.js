@@ -1,29 +1,12 @@
+// https://leetcode.com/submissions/detail/271083101/
 export function isValidBST(tree) {
-    return _isValid(tree.root);
+    return _isValid(tree.root, null, null);
 }
-function _isValid(tree){
-    if(!tree) return true;
-
-    let leftvalue = false;
-    let rightvalue = false;
-    const x = _isValid(tree.left);
-    const y =  _isValid(tree.right);
-
-    if(x == false ||y == false) {
+function _isValid(root, min, max) {
+    if (root == null)
+        return true;
+    if ((min != null && root.val <= min.val) || (max != null && root.val >= max.val))
         return false;
-    }
 
-    if(tree.right == null){
-        return true;
-    }else{
-        rightvalue =  tree.right.val >= tree.val;
-    }
-
-    if(tree.left == null){
-        return true;
-    }else{
-        leftvalue = tree.left.val <= tree.val;
-    }
-
-    return rightvalue && leftvalue;
+    return _isValid(root.left, min, root) && _isValid(root.right, root, max);
 }
