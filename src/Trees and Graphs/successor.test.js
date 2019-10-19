@@ -21,7 +21,7 @@ describe(`Edge cases`, () => {
         input.forEach((elem) => {
             tree.add(elem);
         });
-        const result = getSuccessor(tree, 2);
+        const result = getSuccessor(tree, 3);
     
         expect(result).toBeNull;
     });  
@@ -71,5 +71,5 @@ describe(`Normal use cases` , () => {
         const result = getSuccessor(tree, 2);
     
         expect(result).toEqual(3);
-    });    
+    });
 });
