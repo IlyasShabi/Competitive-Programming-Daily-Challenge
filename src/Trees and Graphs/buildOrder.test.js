@@ -55,4 +55,16 @@ describe(`Edge Cases` , () => {
         expect(result).toEqual(expected);
     
     });
+    it('Cyclic dependency 2', () => {
+
+        const input =  [
+            [0]
+        ];
+    
+        const result = buildOrder(input);
+        const expected = [0];
+
+        expect(result).toEqual(expected);
+    
+    });
 });
