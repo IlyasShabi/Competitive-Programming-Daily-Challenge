@@ -46,3 +46,29 @@ describe(`Simple use cases`, () => {
 
     });
 });
+describe(`Edge Cases` , () => {
+    it(`Single node`, () => {
+        const input = [1];
+        const tree = new Tree();
+
+        input.forEach((elem) => {
+            tree.add(elem);
+        });
+
+        const expected = [1];
+        const result = getSequences(tree);
+
+        expect(result).toEqual(expected);
+
+    });
+
+    it(`Empty tree` , () => {
+
+        const tree = new Tree();
+
+        const expected = [];
+        const result = getSequences(tree);
+
+        expect(result).toEqual(expected);
+    });
+});

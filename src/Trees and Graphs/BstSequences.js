@@ -1,5 +1,7 @@
 export function getSequences(input) {
-    return getArraysFromTree(input.root);
+    const result = getArraysFromTree(input.root);
+
+    return result ? result : [];
 }
 
 function getArraysFromTree(tree) {
